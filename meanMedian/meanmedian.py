@@ -53,3 +53,29 @@ plt.figure(figsize=(10,6))
 plt.bar(['Mean expYears', 'Median expYears', 'Mean salary', 'Median salary'], [mean_years, median_years, mean_salary, median_salary], color=['skyblue', 'orange', 'black', 'purple'])
 plt.title('Overall Mean and Median ExpYears and Salary')
 plt.show();
+
+plt.figure(figsize=(24,12))
+plt.boxplot(yearsExperience)
+plt.title('Boxplot of Exp. years')
+plt.ylabel('Years')
+plt.plot()
+
+salary_range = np.ptp(salary)
+salary_variance = np.var(salary)
+salary_std_deviation = np.std(salary)
+salary_percentiles = np.percentile(salary, [25, 50, 75])
+
+print("Salary Range:", salary_range)
+print("Salary variance:", salary_variance)
+print("Salary Standard Deviation:", salary_std_deviation)
+print("25th, 50th and 75th Percentiles of Price:", salary_percentiles)
+
+plt.figure(figsize=(15,6))
+plt.hist(salary[salary>55000], bins = 20, color = 'skyblue', edgecolor='black')
+plt.axvline(salary_percentiles[0], color='red', linestyle='--', label='25th Percentile')
+plt.axvline(salary_percentiles[1], color='green', linestyle='--', label='50th Percentile')
+plt.axvline(salary_percentiles[2], color='blue', linestyle='--', label='75th Percentile')
+plt.xlabel('salary')
+# plt.ylabel('will update') # need to add y-label
+plt.legend()
+plt.plot()
